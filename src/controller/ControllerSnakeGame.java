@@ -1,8 +1,10 @@
 package controller;
 
+import model.InitialState;
 import model.InputMap;
 import model.SnakeGame;
 import view.PanelSnakeGame;
+import view.ViewCommand;
 import view.ViewSnakeGame;
 
 public class ControllerSnakeGame extends AbstractController {
@@ -32,5 +34,12 @@ public class ControllerSnakeGame extends AbstractController {
                         map.getStart_items());
 
         viewGame = new ViewSnakeGame(panel);
+        viewCommand = new ViewCommand();
+        viewCommand.setController(this);
+        setState(new InitialState());
+
+        game.addObserver(viewGame);
+        game.addObserver(viewCommand);
+        game.init();
     }
 }

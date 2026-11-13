@@ -254,6 +254,7 @@ public class PanelSnakeGame extends JPanel{
 		
 		this.featuresSnakes = featuresSnakes;
 		this.featuresItems = featuresItems;
+		repaint();
 	
 	}
 
